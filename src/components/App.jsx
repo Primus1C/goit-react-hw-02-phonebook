@@ -29,8 +29,6 @@ export class App extends React.Component {
       const { name, contact } = evt.target.elements;
     };
 
-    //console.log(this.state.contacts);
-
     return (
       <div
         style={{
@@ -57,6 +55,14 @@ export class App extends React.Component {
             /> 
           </label>
 
+          <label>
+            Number
+            <input 
+              type="tel"
+              name="number"
+            /> 
+          </label>
+            
           <button
             type="submit">Add contact</button>
 
@@ -64,7 +70,16 @@ export class App extends React.Component {
 
         <h3>Contacts</h3>
         
-        <Contacts contacts={this.state.contacts}/>  
+        <label>
+            Find contacts by name
+            <input 
+              type="text"
+              name="filter"
+            /> 
+          </label>
+
+        <Contacts
+          contacts={this.state.contacts} />  
         
       </div>
     );
