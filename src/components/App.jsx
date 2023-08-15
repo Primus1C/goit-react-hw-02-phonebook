@@ -17,15 +17,18 @@ export class App extends React.Component {
   number: ''
 }
 
-
+  createContact = (data) => { 
+    console.log(data);
+  }
   
-  
-  render() {
-    
-    const handleSubmit = evt => { 
+  /*
+  handleSubmit = evt => { 
       evt.preventDefault();
       const { name, contact } = evt.target.elements;
-    };
+  };  
+  */
+  
+  render() {
 
     return (
       <div
@@ -35,12 +38,12 @@ export class App extends React.Component {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          fontSize: 40,
+          fontSize: 30,
           color: '#010101' 
         }}
       >
         <h3>Phonebook</h3>
-<NewContactForm  contacts={this.state.contacts} /> 
+        <NewContactForm  contacts={this.createContact} /> 
         
         <h3>Contacts</h3>
         
