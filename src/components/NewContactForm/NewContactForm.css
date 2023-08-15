@@ -1,0 +1,16 @@
+.NewContactForm__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: solid;
+    border-radius: 6px;
+    padding: 30px;
+}
+
+.NewContactForm__form__label {
+    font-size: 24px;
+}
+
+.NewContactForm__form__button {
+    font-size: 20px;
+}

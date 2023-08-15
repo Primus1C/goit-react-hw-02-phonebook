@@ -1,5 +1,6 @@
 import React from 'react';
-import { nanoid } from 'nanoid'
+
+import NewContactForm from './NewContactForm/NewContactForm';
 import Contacts from './Contacts/Contacts';
 
 
@@ -16,9 +17,6 @@ export class App extends React.Component {
   number: ''
 }
 
-  handleOnChange = evt => { 
-    this.setState({name:evt.currentTarget.name})
-  }
 
   
   
@@ -42,32 +40,8 @@ export class App extends React.Component {
         }}
       >
         <h3>Phonebook</h3>
-        <form autoComplete='off' onSubmit={handleSubmit}>
-          <label>
-            Name
-            <input 
-              type="text"
-              name="name"
-              id={nanoid()}
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-              required
-            /> 
-          </label>
-
-          <label>
-            Number
-            <input 
-              type="tel"
-              name="number"
-            /> 
-          </label>
-            
-          <button
-            type="submit">Add contact</button>
-
-        </form>
-
+<NewContactForm  contacts={this.state.contacts} /> 
+        
         <h3>Contacts</h3>
         
         <label>
