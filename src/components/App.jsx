@@ -43,7 +43,7 @@ export class App extends React.Component {
         }}
       >
         <h3>Phonebook</h3>
-        <NewContactForm  contacts={this.createContact} /> 
+        <NewContactForm contacts={this.createContact} /> 
         
         <h3>Contacts</h3>
         
