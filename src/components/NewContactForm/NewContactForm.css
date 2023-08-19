@@ -1,3 +1,8 @@
+:root {
+--size-label: 20px;
+--size-error: 16px;
+}
+
 .NewContactForm__form {
     display: flex;
     flex-direction: column;
@@ -8,9 +13,18 @@
 }
 
 .NewContactForm__form__label {
-    font-size: 24px;
+    font-size: var(--size-label);
 }
 
-.NewContactForm__form__button {
-    font-size: 20px;
+.NewContactForm__form__field {
+    margin-left: 20px;
+}
+
+.NewContactForm__form__error {
+    font-size: var(--size-error);
+    color: red;
+}
+
+#NewContactForm__form__button {
+    font-size: var(--size-label);
 }
