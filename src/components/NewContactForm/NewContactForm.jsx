@@ -20,37 +20,46 @@ const signupSchema = Yup.object().shape({
 });
 
 const initialValues = {
-  name: '?',
-  number: '??',
+  name: '',
+  number: '',
 };
 
-
-export const NewContactForm = () => {
-  const handleSubmit = (values, {resetForm}) => {
-  console.log('Submited!')
+const handleSubmit = (values, {resetForm}) => {
+  //console.log('Submited!')
   //console.log('vlues:',values);
   //console.log(actions);
-  resetForm()
+    
+    resetForm();
   };
-  
-  return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={signupSchema}
-      onSubmit={handleSubmit}>
-      <Form className="NewContactForm__form" autoComplete="off">
-        <label className="NewContactForm__form__label" htmlFor="name">
-          Name 
-          <Field className='NewContactForm__form__field' type="text" name="name" />
-          <ErrorMessage className='NewContactForm__form__error' name='name' component='div' />
-        </label>
-        <label className="NewContactForm__form__label" htmlFor="number">
-          Number
-          <Field className='NewContactForm__form__field' type="tel" name="number" />
-          <ErrorMessage className='NewContactForm__form__error' name='number' component='div' />
-        </label>
-        <button id='NewContactForm__form__button' type="submit">Submit</button>
-      </Form>
-    </Formik>
-  );
-};
+
+class NewContactForm extends React.Component {
+  state = {
+    name: '',
+    number: '',
+  }
+
+  render() {
+    return (
+      <Formik
+        initialValues={initialValues}
+        validationSchema={signupSchema}
+        onSubmit={handleSubmit}>
+        <Form className="NewContactForm__form" autoComplete="off">
+          <label className="NewContactForm__form__label" htmlFor="name">
+            Name
+            <Field className='NewContactForm__form__field' type="text" name="name" />
+            <ErrorMessage className='NewContactForm__form__error' name='name' component='div' />
+          </label>
+          <label className="NewContactForm__form__label" htmlFor="number">
+            Number
+            <Field className='NewContactForm__form__field' type="tel" name="number" />
+            <ErrorMessage className='NewContactForm__form__error' name='number' component='div' />
+          </label>
+          <button id='NewContactForm__form__button' type="submit">Add contact</button>
+        </Form>
+      </Formik>
+    );
+  };
+}
+
+export default NewContactForm;
