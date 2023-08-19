@@ -1,10 +1,10 @@
-import React from 'react';
+import { Component}  from 'react';
 
-import NewContactForm from './NewContactForm/NewContactForm';
+import { NewContactForm } from './NewContactForm/NewContactForm';
 import Contacts from './Contacts/Contacts';
 
 
-export class App extends React.Component {
+export class App extends Component {
   state = {
   contacts: [
     {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
@@ -43,7 +43,8 @@ export class App extends React.Component {
         }}
       >
         <h3>Phonebook</h3>
-        <NewContactForm contacts={this.createContact} /> 
+        <NewContactForm  /> 
+        
         
         <h3>Contacts</h3>
         
