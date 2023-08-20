@@ -21,12 +21,12 @@ export class App extends React.Component {
     console.log(data);
   }
   
-  /*
+  
   handleSubmit = evt => { 
       evt.preventDefault();
       const { name, contact } = evt.target.elements;
   };  
-  */
+  
   
   render() {
 
@@ -43,7 +43,7 @@ export class App extends React.Component {
         }}
       >
         <h3>Phonebook</h3>
-        <NewContactForm  /> 
+        <NewContactForm onSubmit={ this.handleSubmit} /> 
         
         
         <h3>Contacts</h3>

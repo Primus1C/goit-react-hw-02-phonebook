@@ -28,7 +28,9 @@ const handleSubmit = (values, {resetForm}) => {
   //console.log('Submited!')
   //console.log('vlues:',values);
   //console.log(actions);
-    
+  //this.setState({[number]:values.number}); 
+console.log(this.state)
+  
     resetForm();
   };
 
