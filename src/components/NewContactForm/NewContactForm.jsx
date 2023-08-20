@@ -24,29 +24,29 @@ const initialValues = {
   number: '',
 };
 
-const handleSubmit = (values, {resetForm}) => {
-  console.log('Submited!')
-  console.log('vlues:',values);
-  //console.log(actions);
-  //this.setState({[number]:values.number}); 
-  //console.log(this)
-  
-    resetForm();
-};
-
 class NewContactForm extends React.Component {
   state = {
     name: '',
     number: '',
   }
-
-
-  render() {
+ 
+  handleSubmit = (values, {resetForm}) => {
+    console.log('Submited!')
+    console.log('values:',values);
+    //this.setState({[number]:values.number}); 
+    //this.setState({name:values.name, number:values.number})
+    this.setState({ number: '100500' })
+    console.log('STATE:', this.state)
+  
+    resetForm();
+  };
+  
+   render() {  
     return (
       <Formik
         initialValues={initialValues}
         validationSchema={signupSchema}
-        onSubmit={handleSubmit}>
+        onSubmit={this.handleSubmit}>
         <Form className="NewContactForm__form" autoComplete="off">
           <label className="NewContactForm__form__label" htmlFor="name">
             Name
