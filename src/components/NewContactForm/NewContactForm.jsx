@@ -25,20 +25,21 @@ const initialValues = {
 };
 
 const handleSubmit = (values, {resetForm}) => {
-  //console.log('Submited!')
-  //console.log('vlues:',values);
+  console.log('Submited!')
+  console.log('vlues:',values);
   //console.log(actions);
   //this.setState({[number]:values.number}); 
-console.log(this.state)
+  //console.log(this)
   
     resetForm();
-  };
+};
 
 class NewContactForm extends React.Component {
   state = {
     name: '',
     number: '',
   }
+
 
   render() {
     return (
