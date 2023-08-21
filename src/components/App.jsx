@@ -1,8 +1,8 @@
 import React  from 'react';
 
-import NewContactForm from './NewContactForm/NewContactForm';
-import Contacts from './Contacts/Contacts';
-
+import ContactForm from './ContactForm/ContactForm';
+import ContactList from './ContactList/ContactList';
+import Filter from './Filter/Filter'
 
 export class App extends React.Component {
   state = {
@@ -15,7 +15,8 @@ export class App extends React.Component {
   filter: ''
 }
    
-  handleSubmit = evt => { 
+  handleNewContactSubmit = evt => { 
+    console.log('App handle!')
       evt.preventDefault();
       const { name, contact } = evt.target.elements;
   };  
@@ -31,26 +32,16 @@ export class App extends React.Component {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          fontSize: 30,
+          fontSize: 20,
           color: '#010101' 
         }}
       >
-        <h3>Phonebook</h3>
-        <NewContactForm onSubmit={ this.handleSubmit} /> 
-        
-        
-        <h3>Contacts</h3>
-        
-        <label>
-            Find contacts by name
-            <input 
-              type="text"
-              name="filter"
-            /> 
-          </label>
-
-        <Contacts
-          contacts={this.state.contacts} />  
+        <h1>Phonebook</h1>
+        <ContactForm handleNewContactSubmit/> 
+                
+        <h2>Contacts</h2>
+        <Filter filter={this.state.filter} />
+        <ContactList contacts={this.state.contacts} />
         
       </div>
     );

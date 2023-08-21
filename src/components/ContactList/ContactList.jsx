@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Contacts = ({ contacts }) => {
+const ContactList = ({ contacts }) => {
     
     return (
       <section className="contacts">
@@ -12,6 +12,7 @@ const Contacts = ({ contacts }) => {
               id={element.id}
             >
               {element.name}: {element.number}
+              <button>Delete</button>
             </li>
           ))}
         </ul>
@@ -19,4 +20,4 @@ const Contacts = ({ contacts }) => {
     );
 };
 
-export default Contacts;
+export default ContactList;
