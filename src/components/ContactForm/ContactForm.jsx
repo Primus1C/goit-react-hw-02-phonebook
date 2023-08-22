@@ -19,10 +19,10 @@ const signupSchema = Yup.object().shape({
     .required("Must enter a phone number")
 });
 
-const initialValues = {
+/*const initialValues = {
   name: '',
   number: '',
-};
+};*/
 
 class ContactForm extends React.Component {
   state = {
@@ -31,21 +31,25 @@ class ContactForm extends React.Component {
   }
  
   handleSubmit = (values, {resetForm}) => {
-    console.log('Submited!')
+    console.log('Submited in form!')
     console.log('values:',values);
     //this.setState({[number]:values.number}); 
-    //this.setState({name:values.name, number:values.number})
-    this.setState({ number: '100500' })
-    console.log('STATE:', this.state)
-    this.props.handleNewContactSubmit();
-  
+    this.setState({name:values.name, number:values.number})
+    //this.setState({ number: '100500' })
+    //console.log('STATE:', this.state)
+    //this.props.handleNewContactSubmit();
+    
+    
+    this.props.contacts.push({ id: 'id-5', name: 'Harry Potter', number: '111-91-28' })
+    console.log('props', this.props)
     resetForm();
   };
   
-   render() {  
+  render() {
     return (
       <Formik
-        initialValues={initialValues}
+        //initialValues={initialValues}
+        initialValues={this.state}
         validationSchema={signupSchema}
         onSubmit={this.handleSubmit}>
         <Form className="ContactForm__form" autoComplete="off">
