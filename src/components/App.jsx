@@ -14,13 +14,20 @@ export class App extends React.Component {
   ],
   filter: ''
 }
-   
-  handleNewContactSubmit = evt => { 
+
+  addNewContact = ({ name, number }) => { 
+    console.log('Adding contact', { name }, { number })
+const newContact ={id: 'id-100', name: 'Harry Potter', number: '444-91-26'}
+this.setState(prevState => ({ point: prevState[contacts].push(newContact)}))    
+  }
+
+/*
+handleNewContactSubmit = evt => { 
     console.log('App handle!')
       evt.preventDefault();
       const { name, contact } = evt.target.elements;
   };  
-  
+  */
   
   render() {
 
@@ -37,7 +44,7 @@ export class App extends React.Component {
         }}
       >
         <h1>Phonebook</h1>
-        <ContactForm contacts={this.state.contacts} /> 
+        <ContactForm addContact={this.addNewContact} /> 
                 
         <h2>Contacts</h2>
         <Filter filter={this.state.filter} />

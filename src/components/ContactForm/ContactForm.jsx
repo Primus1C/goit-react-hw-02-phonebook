@@ -34,14 +34,15 @@ class ContactForm extends React.Component {
     console.log('Submited in form!')
     console.log('values:',values);
     //this.setState({[number]:values.number}); 
-    this.setState({name:values.name, number:values.number})
+    this.setState = ({name:values.name, number:values.number})
     //this.setState({ number: '100500' })
     //console.log('STATE:', this.state)
     //this.props.handleNewContactSubmit();
     
     
-    this.props.contacts.push({ id: 'id-5', name: 'Harry Potter', number: '111-91-28' })
-    console.log('props', this.props)
+    //this.props.contacts.push({ id: 'id-5', name: 'Harry Potter', number: '111-91-28' })
+    //console.log('props', this.props)
+    this.props.addContact(values)
     resetForm();
   };
   
