@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 //import { Notify } from 'notiflix/build/notiflix-notify-aio';
-//import { nanoid } from 'nanoid';
+
 import './ContactForm.css';
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
@@ -42,7 +42,7 @@ class ContactForm extends React.Component {
     
     //this.props.contacts.push({ id: 'id-5', name: 'Harry Potter', number: '111-91-28' })
     //console.log('props', this.props)
-    this.props.addContact(values)
+    this.props.addContact(values);
     resetForm();
   };
   
