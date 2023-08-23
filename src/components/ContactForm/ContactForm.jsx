@@ -2,7 +2,6 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 //import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
 import './ContactForm.css';
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
@@ -19,11 +18,6 @@ const signupSchema = Yup.object().shape({
     .required("Must enter a phone number")
 });
 
-/*const initialValues = {
-  name: '',
-  number: '',
-};*/
-
 class ContactForm extends React.Component {
   state = {
     name: '',
@@ -33,15 +27,7 @@ class ContactForm extends React.Component {
   handleSubmit = (values, {resetForm}) => {
     console.log('Submited in form!')
     console.log('values:',values);
-    //this.setState({[number]:values.number}); 
     this.setState = ({name:values.name, number:values.number})
-    //this.setState({ number: '100500' })
-    //console.log('STATE:', this.state)
-    //this.props.handleNewContactSubmit();
-    
-    
-    //this.props.contacts.push({ id: 'id-5', name: 'Harry Potter', number: '111-91-28' })
-    //console.log('props', this.props)
     this.props.addContact(values);
     resetForm();
   };
@@ -49,22 +35,43 @@ class ContactForm extends React.Component {
   render() {
     return (
       <Formik
-        //initialValues={initialValues}
         initialValues={this.state}
         validationSchema={signupSchema}
         onSubmit={this.handleSubmit}>
-        <Form className="ContactForm__form" autoComplete="off">
-          <label className="ContactForm__form__label" htmlFor="name">
+        <Form
+          className="ContactForm__form"
+          autoComplete="off">
+          <label
+            className="ContactForm__form__label"
+            htmlFor="name">
             Name
-            <Field className='ContactForm__form__field' type="text" name="name" />
-            <ErrorMessage className='ContactForm__form__error' name='name' component='div' />
+            <Field
+              className='ContactForm__form__field'
+              type="text"
+              name="name" />
+            <ErrorMessage
+              className='ContactForm__form__error'
+              name='name'
+              component='div' />
           </label>
-          <label className="ContactForm__form__label" htmlFor="number">
+          <label
+            className="ContactForm__form__label"
+            htmlFor="number">
             Number
-            <Field className='ContactForm__form__field' type="tel" name="number" />
-            <ErrorMessage className='ContactForm__form__error' name='number' component='div' />
+            <Field
+              className='ContactForm__form__field'
+              type="tel"
+              name="number" />
+            <ErrorMessage
+              className='ContactForm__form__error'
+              name='number'
+              component='div' />
           </label>
-          <button id='ContactForm__form__button' type="submit">Add contact</button>
+          <button
+            id='ContactForm__form__button'
+            type="submit">
+            Add contact
+          </button>
         </Form>
       </Formik>
     );

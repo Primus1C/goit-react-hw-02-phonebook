@@ -27,8 +27,20 @@ export class App extends React.Component {
   }
   
   deleteOldContact = ( id ) => { 
-    const contactArray = this.state.contacts.filter(contact => contact.id != id);   
+    const contactArray = this.state.contacts.filter(contact => contact.id !== id);   
     this.setState({ contacts: contactArray });
+  }
+
+  handleFilter = ({ target }) => {
+    const normalizedFilter = target.value.trim().toLowerCase();
+    this.setState({ filter: normalizedFilter });
+    //console.log(this.state.filter)
+  }
+
+  getFilteredContacts = () => {
+    return this.state.contacts.filter(
+      ({ name }) => name.toLowerCase().includes(this.state.filter)
+    )
   }
 
   render() {
@@ -46,11 +58,25 @@ export class App extends React.Component {
         }}
       >
         <h1>Phonebook</h1>
-        <ContactForm addContact={this.addNewContact} /> 
+        <ContactForm
+          addContact={this.addNewContact}
+        /> 
                 
         <h2>Contacts</h2>
-        <Filter filter={this.state.filter} />
-        <ContactList contacts={this.state.contacts} deleteContact={this.deleteOldContact } />
+        <Filter
+          filter={this.state.filter}
+          setFilter={this.handleFilter}
+        />
+        
+        {this.getFilteredContacts().length ? (
+          <ContactList
+            contacts={this.getFilteredContacts()}
+            deleteContact={this.deleteOldContact}
+          />
+          ) : (
+          <p>No matches found!</p>  
+          ) 
+        }
         
       </div>
     );

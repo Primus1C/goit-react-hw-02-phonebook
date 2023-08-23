@@ -1,18 +1,18 @@
-import React from 'react';
+import './Filter.css';
 
-class Filter extends React.Component { 
-    render() {
-        return (
+export default function Filter({ filter, setFilter }) {
+  return (
         <label>
             Find contacts by name
-            <input 
+            <input
+              className='Filter__input'
               type="text"
               name="filter"
+              value={filter}
+              onChange={setFilter}
+              //placeholder='Filter...'
             /> 
           </label>
-        )
-        
-    }
+  )
 }
 
-export default Filter

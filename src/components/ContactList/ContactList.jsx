@@ -1,26 +1,30 @@
 import React from 'react';
+import './ContactList.css';
 
 class ContactList extends React.Component {
   state = {};
 
-  //const ContactList = ({ contacts }) => {
-    
   handleClick = id => {
     this.props.deleteContact(id)
   };
 
   render() {
     return (
-      <section className="contacts">
-        <ul className="contacts__list">
+      <section className="ContactList">
+        <ul className="ContactList__list">
           {this.props.contacts.map(element => (
             <li
-              className="contacts__list__item"
+              className="ContactList__list__item"
               key={element.id}
               id={element.id}
             >
               {element.name}: {element.number}
-              <button onClick={() => this.handleClick(element.id)} type='button'>  Delete</button>
+              <button
+                type='button'
+                className="ContactList__list__button"
+                onClick={() => this.handleClick(element.id)} >
+                Delete
+              </button>
             </li>
           ))}
         </ul>
